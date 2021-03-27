@@ -101,3 +101,25 @@ class TestProblemTwo(unittest.TestCase):
         obj = SolutionTwo(self.data)
         executed_results = obj.get_results()
         self.assertTrue(self.match_all_keys(results, executed_results))
+
+
+class TestProblemThree(unittest.TestCase):
+    def setUp(self) -> None:
+        self.obj = SolutionThree()
+        return super().setUp()
+
+    def test_same_node(self):
+        node = self.obj.lca(self.obj.nodes[4], self.obj.nodes[4])
+        self.assertEqual(node, self.obj.nodes[4])
+
+    def test_parent_child(self):
+        node = self.obj.lca(self.obj.nodes[8], self.obj.nodes[2])
+        self.assertEqual(node, self.obj.nodes[2])
+
+    def test_two_side_node(self):
+        node = self.obj.lca(self.obj.nodes[8], self.obj.nodes[7])
+        self.assertEqual(node, self.obj.nodes[1])
+
+    def test_partial_child(self):
+        node = self.obj.lca(self.obj.nodes[8], self.obj.nodes[9])
+        self.assertEqual(node, self.obj.nodes[4])

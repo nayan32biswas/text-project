@@ -26,10 +26,12 @@ class SolutionOne:
         self.depth_in_dict(self.data, 1)
         return self.results 
 
-    def start(self):
-         self.get_results()
-         for value in self.results:
-             print(value)
+    def print_depth(self, data=None):
+        if data:
+            self.data = data
+        self.get_results()
+        for value in self.results:
+            print(value)
 
 class Person(object):
     def __init__(self, first_name, last_name, father):
@@ -68,17 +70,47 @@ class SolutionTwo:
         self.depth_in_dict(self.data, 1)
         return self.results 
 
-    def start(self):
-         self.get_results()
-         for value in self.results:
-             print(value)
+    def print_depth(self, data=None):
+        if data:
+            self.data = data
+        self.get_results()
+        for value in self.results:
+            print(value)
 
+class Node:
+    def __init__(self, value, parent) -> None:
+        self.value = value
+        self.parent = parent
 
 class SolutionThree:
-    def results(self):
-        return []
+    def __init__(self) -> None:
+        self.create_tree()
+
+    def create_tree(self):
+        self.nodes = [0, Node(1, None)]
+        self.nodes = self.nodes + [Node(2, self.nodes[1]), Node(3, self.nodes[1])]
+        self.nodes = self.nodes + [Node(4, self.nodes[2]), Node(5, self.nodes[2])]
+        self.nodes = self.nodes + [Node(6, self.nodes[3]), Node(7, self.nodes[3])]
+        self.nodes = self.nodes + [Node(8, self.nodes[4]), Node(9, self.nodes[4])]
+
+    def mark_node(self, node):
+        self.mark[node] = 1
+        if(node.parent):
+            self.mark_node(node.parent)
+
+    def get_anc(self, node):
+        if node in self.mark:
+            return node
+        if(node.parent):
+            return self.get_anc(node.parent)
+
+    def lca(self, node1, node2):
+        self.mark = {}
+        self.mark_node(node1)
+        return self.get_anc(node2)
+
     def start(self):
-        pass
+        self.lca(self.nodes[6], self.nodes[7])
 
 
 def main():
@@ -86,10 +118,10 @@ def main():
     while(runing):
         user_input = input("Type 1 or 2 or 3 to execute solution and 0 to exit: ")
         if '1' in user_input:
-            SolutionOne().start()
+            SolutionOne().print_depth()
 
         elif '2' in user_input:
-            SolutionTwo().start()
+            SolutionTwo().print_depth()
         elif '3' in user_input:
             SolutionThree().start()
         elif '0' in user_input:
@@ -97,8 +129,8 @@ def main():
         else:
             runing = 0
             user_input = None
-            SolutionOne().start()
-            SolutionTwo().start()
+            SolutionOne().print_depth()
+            SolutionTwo().print_depth()
             SolutionThree().start()
 
 if __name__ == "__main__":
