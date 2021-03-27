@@ -1,0 +1,42 @@
+# ============================== Common Files & Folder To ignore ==============================
+.env**
+.venv**
+**.bak
+*.conf
+__testing__
+__testing__/**
+*.log
+**.sock
+**.out
+**.exe
+
+# ============================== Python ==============================
+**/__pycache__
+#pyenv
+.python-version
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+
+# ============================== Editor's ==============================
+# Visual Studio Code
+.vscode/
+.vscode/**
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+*.code-workspace
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-shareaes
+# If you are using PyCharm
+.idea/
+*.iws / out/
+#Jupyter Notebook
+.ipynb_checkpoints
