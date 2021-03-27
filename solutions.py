@@ -1,3 +1,4 @@
+
 class SolutionOne:
     data = {
         "key1": 1,
@@ -32,12 +33,15 @@ class SolutionOne:
         self.get_results()
         for value in self.results:
             print(value)
+        print("") # blankline
+
 
 class Person(object):
     def __init__(self, first_name, last_name, father):
         self.first_name = first_name
         self.last_name = last_name
         self.father = father
+
 
 class SolutionTwo:
     data = {
@@ -76,11 +80,14 @@ class SolutionTwo:
         self.get_results()
         for value in self.results:
             print(value)
+        print("") # blankline
+
 
 class Node:
     def __init__(self, value, parent) -> None:
         self.value = value
         self.parent = parent
+
 
 class SolutionThree:
     def __init__(self) -> None:
@@ -110,7 +117,9 @@ class SolutionThree:
         return self.get_anc(node2)
 
     def start(self):
-        self.lca(self.nodes[6], self.nodes[7])
+        print("lca of 6 7:", self.lca(self.nodes[6], self.nodes[7]).value)
+        print("lca of 3 7:", self.lca(self.nodes[6], self.nodes[7]).value)
+        print("") # blankline
 
 
 def main():
@@ -119,7 +128,6 @@ def main():
         user_input = input("Type 1 or 2 or 3 to execute solution and 0 to exit: ")
         if '1' in user_input:
             SolutionOne().print_depth()
-
         elif '2' in user_input:
             SolutionTwo().print_depth()
         elif '3' in user_input:
@@ -132,6 +140,7 @@ def main():
             SolutionOne().print_depth()
             SolutionTwo().print_depth()
             SolutionThree().start()
+
 
 if __name__ == "__main__":
     main()
