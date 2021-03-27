@@ -8,7 +8,6 @@ class SolutionOne:
             }
         }
     }
-    
 
     def __init__(self, data=None) -> None:
         if data:
@@ -32,8 +31,6 @@ class SolutionOne:
          self.get_results()
          for value in self.results:
              print(value)
-
-
 
 
 class SolutionTwo:
