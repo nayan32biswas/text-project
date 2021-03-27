@@ -11,6 +11,8 @@ class TestProblemOne(unittest.TestCase):
                 "key3": 1,
                 "key4": {
                     "key5": 4
+                },
+                "key5": {
                 }
             }
         }
